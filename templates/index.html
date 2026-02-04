@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="background-gradient"></div>
+    
+    <div class="container">
+        <header>
+            <h1>Weather Forecast</h1>
+        </header>
+        
+        <div class="search-box">
+            <input type="text" id="city-input" placeholder="Enter city name..." autocomplete="off">
+            <button id="search-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </button>
+        </div>
+
+        <div id="loader" class="loader hidden"></div>
+
+        <div id="weather-card" class="weather-card hidden">
+            <div class="location-info">
+                <h2 id="city-name">City Name</h2>
+                <span id="country-name" class="country-badge">Country</span>
+            </div>
+            
+            <div class="weather-main">
+                <div class="temp-container">
+                    <span id="temperature">--</span>
+                    <span id="temp-unit">°C</span>
+                </div>
+                <div class="condition-icon" id="weather-icon">
+                    <!-- Icon will be inserted here -->
+                </div>
+            </div>
+            
+            <div class="weather-details">
+                <div class="detail-item">
+                    <span class="label">Humidity</span>
+                    <span class="value" id="humidity">--%</span>
+                </div>
+                <div class="detail-item">
+                    <span class="label">Wind</span>
+                    <span class="value" id="wind">-- km/h</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="error-message" class="error-message hidden">
+            <p>City not found. Please try again.</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
